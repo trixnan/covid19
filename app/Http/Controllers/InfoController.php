@@ -9,7 +9,9 @@ class InfoController extends Controller
 {
     public function index() {
       $response = Http::get('https://api.kawalcorona.com/indonesia/provinsi');
+      $count = Http::get('https://api.kawalcorona.com/indonesia');
       $data = $response->json();
-      return view('index', compact('data'));
+      $data2 = $count->json();
+      return view('index', compact('data', 'data2'));
     }
 }

@@ -7,13 +7,53 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="{{ asset('fontawesome/css/all.min.css') }}"/>
     <title>Persebaran Corona di Indonesia</title>
   </head>
   <body>
-    <h3 class="text-center">Persebaran Corona di Wilayah Indonesia</h3>
+    <h4 class="text-center">Persebaran Corona di Wilayah Indonesia</h4>
 
 <div class="container">
+  <div class="d-flex justify-content-end">
+      <h5>{{ tanggal_indonesia(date('Y-m-d')) }}</h5>
+  </div><br>
+  @foreach($data2 as $d)
+<div class="row mb-3 pb-3">
+   <div class="col-sm-4 mb-3">
+      <ul class="list-group">
+         <li class="list-group-item text-warning">
+            <i class="fas fa-plus-circle display-3"></i>
+            <span class="display-3 float-right">{{ $d['positif'] }}</span>
+         </li>
+         <li class="list-group-item bg-warning">
+            <a href="?hal=jabatan" class="nav-link text-white">Positif</a>
+         </li>
+      </ul>
+   </div>
+   <div class="col-sm-4 mb-3">
+      <ul class="list-group">
+         <li class="list-group-item text-success">
+            <i class="fas fa-check-circle display-3"></i>
+            <span class="display-3 float-right">{{ $d['sembuh'] }}</span>
+         </li>
+         <li class="list-group-item bg-success">
+            <a href="?hal=jabatan" class="nav-link text-white">Sembuh</a>
+         </li>
+      </ul>
+   </div>
+   <div class="col-sm-4 mb-3">
+      <ul class="list-group">
+         <li class="list-group-item text-danger">
+            <i class="fas fa-times-circle display-3"></i>
+            <span class="display-3 float-right">{{ $d['meninggal'] }}</span>
+         </li>
+         <li class="list-group-item bg-danger">
+            <a href="?hal=jabatan" class="nav-link text-white">Meninggal</a>
+         </li>
+      </ul>
+   </div>
+</div>
+  @endforeach
   <div class="table-responsive">
   <table class="table table-striped">
   <thead>
