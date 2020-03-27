@@ -59,9 +59,9 @@
   <thead>
     <tr>
       <th scope="col">#</th>
+      <th scope="col">Provinsi</th>
       <th scope="col">Positif</th>
       <th scope="col">Sembuh</th>
-      <th scope="col">Positif</th>
       <th scope="col">Meninggal</th>
     </tr>
   </thead>
